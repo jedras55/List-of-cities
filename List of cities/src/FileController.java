@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class FileController {
@@ -45,9 +46,13 @@ public class FileController {
 	}
 
 	public void saveCountryCities(ArrayList<String> countryCities){
+		File fileCountryCitiesList = new File(FILE_COUNTRY_CITIES_PATH);
 		try(
 				BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_COUNTRY_CITIES_PATH, true));
 		) {
+			PrintWriter printwriter = new PrintWriter(fileCountryCitiesList);
+			printwriter.write("");
+			printwriter.close();
 			for(String tmp: countryCities){
 				writer.write(tmp);
 				writer.newLine();
