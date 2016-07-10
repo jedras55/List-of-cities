@@ -26,7 +26,7 @@ public class FileController {
 		BufferedReader reader = null;
 		try{
 			reader = new BufferedReader(new FileReader(FILE_ALL_CITIES_PATH));
-			String line1 = null;
+			String line1 = null; // Variable helping in ignore first line of file - line with headers
 			while((line1 = reader.readLine()) != null){
 				String tmp = reader.readLine();
 				if(tmp.substring(tmp.length()-2, tmp.length()).matches(countryCode)){
